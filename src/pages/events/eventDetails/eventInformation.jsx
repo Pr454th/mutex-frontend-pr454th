@@ -4,6 +4,7 @@ import ReactWhatsapp from "react-whatsapp";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { CgWebsite } from "react-icons/cg";
+import Markdown from "react-markdown";
 
 const EventInformation = (props) => {
   const [link, setLink] = useState(props.detail.link);
@@ -103,7 +104,9 @@ const EventInformation = (props) => {
           )}
           <tr>
             <td>Other Info</td>
-            <td>{props.detail.otherInfo}</td>
+            <td>
+              <Markdown>{props.detail.otherInfo}</Markdown>
+            </td>
           </tr>
         </tbody>
       </table>

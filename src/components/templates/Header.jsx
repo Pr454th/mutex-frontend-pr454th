@@ -7,9 +7,9 @@ const Header = () => {
         <div className="top">
           <div>
             <img
-              src="/static/images/app/mitLogo.png"
-              alt="mit-logo"
-              className="logo-img"
+              src="/static/images/app/itaLogo.jpg"
+              alt="annauniv-logo"
+              className="logo-img rounded-circle p-2"
             />
           </div>
           <div className="ms-3 title">
@@ -17,14 +17,9 @@ const Header = () => {
             <span className="h5 text-center subtitle-text">
               An Epic Symposium
             </span>
-            <span>Department of Information Technology</span>
-          </div>
-          <div>
-            <img
-              src="/static/images/app/auLogo.png"
-              alt="annauniv-logo"
-              className="logo-img"
-            />
+            <span style={{ textAlign: "center" }}>
+              Department of Information Technology
+            </span>
           </div>
         </div>
       </div>

@@ -119,7 +119,6 @@ const EventDetail = () => {
           <img src={Loading} alt="..." className={`mx-auto ${loadclass}`} />
         </section>
 
-        <div>{window.location.pathname}</div>
         <div className="row mt-5">
           <div className="col-lg-7">
             <EventInformation detail={data} />

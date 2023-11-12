@@ -22,11 +22,15 @@ const PrizeDetails = ({ event }) => {
             <>
               <tr>
                 <td>First Prize</td>
-                <td>{event.firstPrizeMoney}</td>
+                <td>
+                  {event.firstPrizeMoney == 0 ? "-" : event.firstPrizeMoney}
+                </td>
               </tr>
               <tr>
                 <td>Second Prize (Runner-Up)</td>
-                <td>{event.secondPrizeMoney}</td>
+                <td>
+                  {event.secondPrizeMoney == 0 ? "-" : event.secondPrizeMoney}
+                </td>
               </tr>
             </>
           )}

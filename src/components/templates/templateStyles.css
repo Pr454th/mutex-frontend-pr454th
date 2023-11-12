@@ -14,7 +14,7 @@
 .top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:center;
 }
 .title {
   display: flex;
@@ -44,9 +44,6 @@
 }
 
 @media only screen and (max-width: 576px) {
-  .title {
-    order: -1;
-  }
   .top {
     flex-wrap: wrap;
     justify-content: space-around;
