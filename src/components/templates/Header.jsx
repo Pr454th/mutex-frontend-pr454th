@@ -7,7 +7,7 @@ const Header = () => {
         <div className="top">
           <div>
             <img
-              src="/static/images/app/itaLogo.jpg"
+              src="/static/images/app/mutexLogo.jpg"
               alt="annauniv-logo"
               className="logo-img rounded-circle p-2"
             />
