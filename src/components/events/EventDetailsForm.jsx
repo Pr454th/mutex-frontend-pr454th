@@ -246,7 +246,7 @@ const EventDetailsForm = ({
             </div>
 
             <div className="form-group">
-              <label>Other Info</label>
+              <label>Other Info (Markdown supported)</label>
               <TextInput
                 trigger={["", " "]}
                 options={suggestions}
