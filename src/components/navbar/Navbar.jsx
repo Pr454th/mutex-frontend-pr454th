@@ -98,13 +98,11 @@ const Navbar = () => {
                       My profile
                     </Link>
                   </li>
-                  {admin && (
-                    <li>
-                      <Link className="dropdown-item" to="/organised-events">
-                        Organised events
-                      </Link>
-                    </li>
-                  )}
+                  <li>
+                    <Link className="dropdown-item" to="/organised-events">
+                      Organised events
+                    </Link>
+                  </li>
                   <li>
                     <Link className="dropdown-item" to="/participated-events">
                       Participated events
