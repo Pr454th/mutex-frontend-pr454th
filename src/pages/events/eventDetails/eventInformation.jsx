@@ -17,11 +17,11 @@ const EventInformation = (props) => {
   if (link && !link.startsWith("http")) setLink("https://" + link);
   return (
     <div>
-      <h1 className="display-4">Event Particulars</h1>
+      <h1 className="display-6">Event Particulars</h1>
       <table className="table table-border" style={tableStyles}>
         <tbody>
           <tr>
-            <td>Event Dates</td>
+            <td>Date & Time </td>
             <td>
               {format(
                 new Date(props.detail.eventStartDate),
@@ -39,53 +39,49 @@ const EventInformation = (props) => {
             <td>{props.detail.eventType}</td>
           </tr>
           <tr>
-            <td>Organisers</td>
-            <td>
-              <ul className="list-unstyled">
-                {props.detail.organisers.map((org) => (
-                  <li key={org._id}>
-                    <strong>{org.userName}</strong> ({org.regNo})
-                  </li>
-                ))}
-              </ul>
-            </td>
-          </tr>
-          <tr>
             <td>Venue</td>
             <td>
               <strong>{props.detail.venue}</strong>
             </td>
           </tr>
           <tr>
-            <td>Contact Name</td>
+            <td>Organizers</td>
             <td>{props.detail.contactName}</td>
           </tr>
           <tr>
             <td>Contact Number</td>
-            <td>
-              <ReactWhatsapp
-                number={props.detail.contactPhone}
-                style={{
-                  border: "none",
-                  backgroundColor: "inherit",
-                  color: `${props.detail.whatsapp ? "green" : "inherit"}`,
-                }}
-                message="get ready"
-              >
-                {props.detail.whatsapp && <FaWhatsapp className="me-1 fs-4" />}
-                {props.detail.contactPhone}
-              </ReactWhatsapp>
-            </td>
+            {props.detail.whatsapp ? (
+              <td>
+                <ReactWhatsapp
+                  number={props.detail.contactPhone}
+                  style={{
+                    border: "none",
+                    backgroundColor: "inherit",
+                    color: `${props.detail.whatsapp ? "green" : "inherit"}`,
+                  }}
+                  message={`Hi, I am interested in the event ${props.detail.eventName}...`}
+                >
+                  {props.detail.whatsapp && (
+                    <FaWhatsapp className="me-1 fs-4" />
+                  )}
+                  {props.detail.contactPhone}
+                </ReactWhatsapp>
+              </td>
+            ) : (
+              <td>{props.detail.contactPhone}</td>
+            )}
           </tr>
-          <tr>
-            <td>Contact Email</td>
-            <td>
-              <a href={`mailto:${props.detail.contactEmail}`}>
-                <MdEmail className="me-1 fs-4" />
-                {props.detail.contactEmail}
-              </a>
-            </td>
-          </tr>
+          {props.detail.contactEmail && (
+            <tr>
+              <td>Contact Email</td>
+              <td>
+                <a href={`mailto:${props.detail.contactEmail}`}>
+                  <MdEmail className="me-1 fs-4" />
+                  {props.detail.contactEmail}
+                </a>
+              </td>
+            </tr>
+          )}
           {link && (
             <tr>
               <td>Link</td>
