@@ -15,6 +15,7 @@ import PasswordReset from "./pages/auth/passwordReset/PasswordReset";
 import { useEffect } from "react";
 import axios from "axios";
 import About from "./pages/About";
+import RegistrationInstructions from "./pages/RegistrationInstructions";
 
 function Router({ authContext }) {
   const location = useLocation();
@@ -31,6 +32,11 @@ function Router({ authContext }) {
       <Routes>
         <Route path="/" element={<Viewevents category="UPCOMING" />} />
         <Route path="/about" element={<About />} />
+        <Route
+          path="/registration-instructions"
+          element={<RegistrationInstructions />}
+        />
+        "
         <Route path="/eventdetails/:id" element={<EventDetail />} />
         <Route
           path="/events/update/:id"
