@@ -1,9 +1,7 @@
 import { format } from "date-fns";
 import { useState } from "react";
-import ReactWhatsapp from "react-whatsapp";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { CgWebsite } from "react-icons/cg";
 import Markdown from "react-markdown";
 
 const EventInformation = (props) => {
@@ -65,15 +63,15 @@ const EventInformation = (props) => {
           )}
           {link && (
             <tr>
-              <td>Link</td>
+              <td>WhatsApp Group</td>
               <td>
                 <a
                   href={link}
                   target="_blank"
                   rel="noreferrer"
-                  style={{ color: "darkblue" }}
+                  style={{ color: "green" }}
                 >
-                  <CgWebsite className="me-1 fs-4" />
+                  <FaWhatsapp className="me-1 fs-4" />
                   {link}
                 </a>
               </td>
