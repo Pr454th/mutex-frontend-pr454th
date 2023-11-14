@@ -50,26 +50,7 @@ const EventInformation = (props) => {
           </tr>
           <tr>
             <td>Contact Number</td>
-            {props.detail.whatsapp ? (
-              <td>
-                <ReactWhatsapp
-                  number={props.detail.contactPhone}
-                  style={{
-                    border: "none",
-                    backgroundColor: "inherit",
-                    color: `${props.detail.whatsapp ? "green" : "inherit"}`,
-                  }}
-                  message={`Hi, I am interested in the event ${props.detail.eventName}...`}
-                >
-                  {props.detail.whatsapp && (
-                    <FaWhatsapp className="me-1 fs-4" />
-                  )}
-                  {props.detail.contactPhone}
-                </ReactWhatsapp>
-              </td>
-            ) : (
-              <td>{props.detail.contactPhone}</td>
-            )}
+            <td>{props.detail.contactPhone}</td>
           </tr>
           {props.detail.contactEmail && (
             <tr>
