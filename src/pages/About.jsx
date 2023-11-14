@@ -2,11 +2,6 @@ const About = () => {
   const organizers = [
     { name: "Madeshwaran K", designation: "ITA Chairman", phone: "7868008688" },
     {
-      name: "Kailash Kumar S",
-      designation: "General Secretary",
-      phone: "9095541133",
-    },
-    {
       name: "Shriya S",
       designation: "Events Head",
       phone: "93617789362",
