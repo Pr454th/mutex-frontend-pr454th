@@ -38,6 +38,12 @@ const About = () => {
             ))}
           </ul>
         </div>
+        <div>
+          <p className="text-muted small">
+            For website related queries, please text Prasath K (Ph: +91 63745
+            11661), Pragadesh BS (Ph: +91 94433 89893)
+          </p>
+        </div>
       </div>
     </div>
   );
