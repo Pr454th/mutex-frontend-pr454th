@@ -124,6 +124,9 @@ const EventOrganisersForm = ({ organizers, setOrganizers, id }) => {
         <ul className="list-group list-group-flush">
           {organizers.length > 0 &&
             organizers.map((org) => {
+              if (org.userName === "admin" && org.email !== user) {
+                return null;
+              }
               return (
                 <li key={org._id} className="list-group-item">
                   {org.userName}
