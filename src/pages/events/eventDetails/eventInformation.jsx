@@ -3,14 +3,17 @@ import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import Markdown from "react-markdown";
+import "./eventDetail.css";
 
 const EventInformation = (props) => {
   const [link, setLink] = useState(props.detail.link);
   const tableStyles = {
-    width: "100%",
     backgroundColor: "#f8f9fa",
     boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
     marginTop: "20px",
+    overflowX: "scroll",
+    display: "block",
+    scrollbarWidth: "none",
   };
   if (link && !link.startsWith("http")) setLink("https://" + link);
   return (
