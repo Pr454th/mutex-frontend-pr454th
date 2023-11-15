@@ -17,7 +17,7 @@ const OrganizedEventsList = ({ events }) => {
               <img
                 src={
                   event.image
-                    ? `${config}/api/events/image/${event._id}`
+                    ? `${config.apiUrl}/api/events/image/${event._id}`
                     : image1
                 }
                 className="card-img-top"

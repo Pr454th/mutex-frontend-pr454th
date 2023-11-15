@@ -6,6 +6,7 @@ import { useAuthContext } from "../../../hooks/useAuthContext";
 import "react-autocomplete-input/dist/bundle.css";
 import EventDetailsForm from "../../../components/events/EventDetailsForm";
 import Loading from "../../loader/loading.svg";
+import config from "../../../config";
 
 const UpdateEvent = () => {
   const { id } = useParams();
@@ -140,7 +141,9 @@ const UpdateEvent = () => {
         eventEndDate: response.data.eventEndDate.substr(0, 16),
       });
       if (response.data.image) {
-        setExistingImage(`/api/events/image/${response.data._id}`);
+        setExistingImage(
+          `${config.apiUrl}/api/events/image/${response.data._id}`
+        );
       }
       axios.get(`/api/events/organizers/${id}`).then((res) => {
         let isOrg = false;
