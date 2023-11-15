@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import Loading from "../../loader/loading.svg";
 import config from "../../../config";
+import { FiChevronsRight } from "react-icons/fi";
 
 import Highlighter from "react-highlight-words";
 import "./viewEvents.css";
@@ -144,53 +145,63 @@ const Viewevents = ({ category }) => {
                 className="card m-5 p-1 col-1 mx-auto pop-out-card with-transform animateText"
                 style={{ width: "18rem" }}
               >
-                <img
-                  src={
-                    item.image
-                      ? `${config.apiUrl}/api/events/image/${item._id}`
-                      : image1
-                  }
-                  className={`card-img-top ${
-                    item.imageLoading ? "hide" : "view"
-                  }`}
+                <Link
+                  to={`/eventdetails/${item._id}`}
                   style={{
-                    maxHeight: "200px",
+                    textDecoration: "none",
+                    color: "black",
                   }}
-                  alt="..."
-                  onLoad={() => {
-                    let temp = filter.map((event) => {
-                      if (event._id === item._id) {
-                        event.imageLoading = false;
-                      }
-                      return event;
-                    });
-                    setFilterDetail(temp);
-                  }}
-                />
-                <img
-                  src={Loading}
-                  alt="..."
-                  className={`mx-auto  ${item.imageLoading ? "view" : "hide"}`}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <Highlighter
-                      highlightClassName="highlight"
-                      searchWords={[Search]}
-                      autoEscape={true}
-                      textToHighlight={item.eventName}
-                    />
-                  </h5>
-                  <p className="card-text">
-                    {format(
-                      new Date(item.eventStartDate.substr(0, 16)),
-                      "dd MMM yyyy-h:mm a"
-                    )}
-                  </p>
-                  <Link to={`/eventdetails/${item._id}`}>
-                    <span className="btn btn-primary">View Details</span>
-                  </Link>
-                </div>
+                >
+                  <img
+                    src={
+                      item.image
+                        ? `${config.apiUrl}/api/events/image/${item._id}`
+                        : image1
+                    }
+                    className={`card-img-top ${
+                      item.imageLoading ? "hide" : "view"
+                    }`}
+                    style={{
+                      maxHeight: "200px",
+                    }}
+                    alt="..."
+                    onLoad={() => {
+                      let temp = filter.map((event) => {
+                        if (event._id === item._id) {
+                          event.imageLoading = false;
+                        }
+                        return event;
+                      });
+                      setFilterDetail(temp);
+                    }}
+                  />
+                  <img
+                    src={Loading}
+                    alt="..."
+                    className={`mx-auto  ${
+                      item.imageLoading ? "view" : "hide"
+                    }`}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      <Highlighter
+                        highlightClassName="highlight"
+                        searchWords={[Search]}
+                        autoEscape={true}
+                        textToHighlight={item.eventName}
+                      />
+                    </h5>
+                    <p className="card-text">
+                      {format(
+                        new Date(item.eventStartDate.substr(0, 16)),
+                        "dd MMM yyyy-h:mm a"
+                      )}
+                    </p>
+                    <span className="btn btn-primary">
+                      View Details <FiChevronsRight />
+                    </span>
+                  </div>
+                </Link>
               </div>
             );
           })}
@@ -209,53 +220,63 @@ const Viewevents = ({ category }) => {
                 className="card m-5 p-1 col-1 mx-auto pop-out-card with-transform animateText"
                 style={{ width: "18rem" }}
               >
-                <img
-                  src={
-                    item.image
-                      ? `${config.apiUrl}/api/events/image/${item._id}`
-                      : image1
-                  }
-                  className={`card-img-top ${
-                    item.imageLoading ? "hide" : "view"
-                  }`}
+                <Link
+                  to={`/eventdetails/${item._id}`}
                   style={{
-                    maxHeight: "200px",
+                    textDecoration: "none",
+                    color: "black",
                   }}
-                  alt="..."
-                  onLoad={() => {
-                    let temp = filter.map((event) => {
-                      if (event._id === item._id) {
-                        event.imageLoading = false;
-                      }
-                      return event;
-                    });
-                    setFilterDetail(temp);
-                  }}
-                />
-                <img
-                  src={Loading}
-                  alt="..."
-                  className={`mx-auto  ${item.imageLoading ? "view" : "hide"}`}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <Highlighter
-                      highlightClassName="highlight"
-                      searchWords={[Search]}
-                      autoEscape={true}
-                      textToHighlight={item.eventName}
-                    />
-                  </h5>
-                  <p className="card-text">
-                    {format(
-                      new Date(item.eventStartDate.substr(0, 16)),
-                      "dd MMM yyyy-h:mm a"
-                    )}
-                  </p>
-                  <Link to={`/eventdetails/${item._id}`}>
-                    <span className="btn btn-primary">View Details</span>
-                  </Link>
-                </div>
+                >
+                  <img
+                    src={
+                      item.image
+                        ? `${config.apiUrl}/api/events/image/${item._id}`
+                        : image1
+                    }
+                    className={`card-img-top ${
+                      item.imageLoading ? "hide" : "view"
+                    }`}
+                    style={{
+                      maxHeight: "200px",
+                    }}
+                    alt="..."
+                    onLoad={() => {
+                      let temp = filter.map((event) => {
+                        if (event._id === item._id) {
+                          event.imageLoading = false;
+                        }
+                        return event;
+                      });
+                      setFilterDetail(temp);
+                    }}
+                  />
+                  <img
+                    src={Loading}
+                    alt="..."
+                    className={`mx-auto  ${
+                      item.imageLoading ? "view" : "hide"
+                    }`}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      <Highlighter
+                        highlightClassName="highlight"
+                        searchWords={[Search]}
+                        autoEscape={true}
+                        textToHighlight={item.eventName}
+                      />
+                    </h5>
+                    <p className="card-text">
+                      {format(
+                        new Date(item.eventStartDate.substr(0, 16)),
+                        "dd MMM yyyy-h:mm a"
+                      )}
+                    </p>
+                    <span className="btn btn-primary">
+                      View Details <FiChevronsRight />
+                    </span>
+                  </div>
+                </Link>
               </div>
             );
           })}
