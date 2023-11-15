@@ -81,7 +81,7 @@ const EventInformation = (props) => {
             </tr>
           )}
           <tr>
-            <td>Other Info</td>
+            <td>More Info</td>
             <td>
               <Markdown>{props.detail.otherInfo}</Markdown>
             </td>

@@ -210,16 +210,6 @@ const EventDetailsForm = ({
                 value={formData.contactPhone}
                 onChange={(e) => setFormData({ ...formData, contactPhone: e })}
               ></TextInput>
-              <label className="ms-3 mb-3">
-                <input
-                  type="checkbox"
-                  checked={formData.whatsapp}
-                  onChange={() =>
-                    setFormData({ ...formData, whatsapp: !formData.whatsapp })
-                  }
-                />{" "}
-                WhatsApp no.
-              </label>
             </div>
             <div className="form-group">
               <label>Contact Email</label>
@@ -234,7 +224,7 @@ const EventDetailsForm = ({
             </div>
 
             <div className="form-group">
-              <label>Link</label>
+              <label>WhatsApp Group Link</label>
               <input
                 type="string"
                 className="form-control m-3 w-75"
@@ -246,7 +236,7 @@ const EventDetailsForm = ({
             </div>
 
             <div className="form-group">
-              <label>Other Info (Markdown supported)</label>
+              <label>More Info (Markdown supported)</label>
               <TextInput
                 trigger={["", " "]}
                 options={suggestions}
