@@ -19,11 +19,14 @@ const Footer = () => {
     <footer className="mt-3 p-2 ps-5">
       <div>
         <div className="h2 title-text">MUTEX '23</div>
-        <div>
-          <div className="small text-muted mb-3">
-            Experience Mutex: {visitorCount}+ Visitors Joining the Excitement!
+        {visitorCount > 0 && (
+          <div>
+            <div className="small text-muted mb-3">
+              Experience Mutex: {parseInt(visitorCount / 17)}+ Visitors Joining
+              the Excitement!
+            </div>
           </div>
-        </div>
+        )}
         <div className="small text-muted">
           Designed by: <BsGithub />{" "}
           <span>
