@@ -1,12 +1,29 @@
 import React from "react";
 import "./templateStyles.css";
 import { BsGithub } from "react-icons/bs";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Footer = () => {
+  const [visitorCount, setVisitorCount] = React.useState(0);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      axios.get("/api/logs/page-views").then((res) => {
+        setVisitorCount(res.data.pageViews);
+      });
+    }, 10000);
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <footer className="mt-3 p-2 ps-5">
       <div>
-        <p className="h2 title-text">MUTEX '23</p>
+        <div className="h2 title-text">MUTEX '23</div>
+        <div>
+          <div className="small text-muted mb-3">
+            Experience Mutex: {visitorCount}+ Visitors Joining the Excitement!
+          </div>
+        </div>
         <div className="small text-muted">
           Designed by: <BsGithub />{" "}
           <span>
