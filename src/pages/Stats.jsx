@@ -36,10 +36,11 @@ const Stats = () => {
           <p>Total no. of events: {events.length}</p>
           <p>
             Total no. of registrations:{" "}
-            {events.reduce((acc, event) => acc + event.participants.length, 0)}
+            {events.reduce((acc, event) => acc + event.participants.length, 0)}{" "}
+            teams
           </p>
           <p>
-            Average no. of registrations per event:{" "}
+            Average no. of team registrations per event:{" "}
             {Math.round(
               events.reduce(
                 (acc, event) => acc + event.participants.length,
