@@ -11,9 +11,8 @@ const EventInformation = (props) => {
     backgroundColor: "#f8f9fa",
     boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
     marginTop: "20px",
-    overflowX: "scroll",
     display: "block",
-    scrollbarWidth: "none",
+    overflowX: "auto",
   };
   if (link && !link.startsWith("http")) setLink("https://" + link);
   return (

@@ -24,8 +24,8 @@ const ViewRegistrations = () => {
         })
         .then((res) => {
           setParticipants(res.data);
+          setLoading(false);
         });
-      setLoading(false);
     });
   }, [id, token]);
 
@@ -63,7 +63,61 @@ const ViewRegistrations = () => {
       )}
       {participants.length > 0 && (
         <div className="p-2">
-          <table className="table table-striped">
+          <div>
+            <h2>Participants</h2>
+            <div>
+              <div>
+                Total participants: <strong>{participants.length}</strong>
+              </div>
+              <div>
+                First years:{" "}
+                <strong>
+                  {
+                    participants.filter(
+                      (p) => 2024 - parseInt(p.regNo.substring(0, 4)) === 1
+                    ).length
+                  }
+                </strong>
+              </div>
+              <div>
+                Second years:{" "}
+                <strong>
+                  {
+                    participants.filter(
+                      (p) => 2024 - parseInt(p.regNo.substring(0, 4)) === 2
+                    ).length
+                  }
+                </strong>
+              </div>
+              <div>
+                Third years:{" "}
+                <strong>
+                  {
+                    participants.filter(
+                      (p) => 2024 - parseInt(p.regNo.substring(0, 4)) === 3
+                    ).length
+                  }
+                </strong>
+              </div>
+              <div>
+                Final years:{" "}
+                <strong>
+                  {
+                    participants.filter(
+                      (p) => 2024 - parseInt(p.regNo.substring(0, 4)) === 4
+                    ).length
+                  }
+                </strong>
+              </div>
+            </div>
+          </div>
+          <table
+            className="table table-striped"
+            style={{
+              display: "block",
+              overflowX: "auto",
+            }}
+          >
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -90,7 +144,6 @@ const ViewRegistrations = () => {
                   );
                 })}
             </tbody>
-            <tbody></tbody>
           </table>
         </div>
       )}
