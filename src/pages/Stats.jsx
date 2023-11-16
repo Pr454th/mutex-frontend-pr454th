@@ -5,29 +5,19 @@ import loadingAnimation from "./loader/loading.svg";
 
 const Stats = () => {
   const [events, setEvents] = useState([]);
-  const [isOrganizer, setIsOrganizer] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { token } = useAuthContext();
   useEffect(() => {
-    axios
-      .get("/api/users/events-organised", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        if (res.data.length) {
-          setLoading(false);
-          setIsOrganizer(true);
-          getStats();
-        }
+    const getStats = () => {
+      axios.get("/api/events/").then((res) => {
+        const events = res.data;
+        events.sort((a, b) => b.participants.length - a.participants.length);
+        setLoading(false);
+        setEvents(events);
       });
-  }, [token]);
-  const getStats = () => {
-    axios.get("/api/events/").then((res) => {
-      const events = res.data;
-      events.sort((a, b) => b.participants.length - a.participants.length);
-      setEvents(events);
-    });
-  };
+    };
+    getStats();
+  }, []);
+
   return (
     <div className="row container mx-auto">
       <h1>Statistics</h1>
@@ -39,10 +29,6 @@ const Stats = () => {
             className="img-fluid"
             alt="..."
           />
-        </div>
-      ) : !isOrganizer ? (
-        <div className="text-center my-5">
-          <h4>Sorry, you are not authorized to view this page</h4>
         </div>
       ) : (
         <div>

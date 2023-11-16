@@ -87,10 +87,7 @@ function Router({ authContext }) {
           path="/reset-password"
           element={!user ? <PasswordReset /> : <Navigate to="/" />}
         />
-        <Route
-          path="stats"
-          element={user ? <Stats /> : <Navigate to="/login" />}
-        />
+        <Route path="stats" element={<Stats />} />
       </Routes>
     </div>
   );
