@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import About from "./pages/About";
 import RegistrationInstructions from "./pages/RegistrationInstructions";
+import Stats from "./pages/Stats";
 
 function Router({ authContext }) {
   const location = useLocation();
@@ -85,6 +86,10 @@ function Router({ authContext }) {
         <Route
           path="/reset-password"
           element={!user ? <PasswordReset /> : <Navigate to="/" />}
+        />
+        <Route
+          path="stats"
+          element={user ? <Stats /> : <Navigate to="/login" />}
         />
       </Routes>
     </div>
