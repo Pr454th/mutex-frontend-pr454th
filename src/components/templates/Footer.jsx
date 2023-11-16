@@ -22,7 +22,7 @@ const Footer = () => {
         {visitorCount > 0 && (
           <div>
             <div className="small text-muted mb-3">
-              Experience Mutex: {parseInt(visitorCount / 17)}+ Visitors Joining
+              Experience Mutex: {parseInt(visitorCount / 8)}+ Visitors Joining
               the Excitement!
             </div>
           </div>
