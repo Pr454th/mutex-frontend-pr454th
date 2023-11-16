@@ -3,9 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import EventInformation from "../eventDetails/eventInformation";
 import { useAuthContext } from "../../../hooks/useAuthContext";
-import { Store } from "react-notifications-component";
 import Loading from "../../loader/loading.svg";
-import { set } from "date-fns";
 
 const ViewRegistrations = () => {
   const [event, setEvent] = useState({});
@@ -16,7 +14,10 @@ const ViewRegistrations = () => {
 
   useEffect(() => {
     axios.get("/api/events/" + id).then((res) => {
-      setEvent(res.data);
+      const temp = res.data;
+      temp.eventStartDate = temp.eventStartDate.substr(0, 16);
+      temp.eventEndDate = temp.eventEndDate.substr(0, 16);
+      setEvent(temp);
       axios
         .get("/api/events/participants/" + id, {
           headers: { Authorization: `Bearer ${token}` },
@@ -49,11 +50,11 @@ const ViewRegistrations = () => {
   return (
     <div className="container" style={backGroundStyles}>
       <h1 className="display-3">Participants</h1>
-      <p class="text-muted">
-        <a href="#" class="text-reset">
+      <div className="text-muted">
+        <a href="#" className="text-reset">
           <h3>{event.eventName}</h3>
         </a>
-      </p>
+      </div>
       <EventInformation detail={event} />
       {participants.length === 0 && (
         <div className="text-center my-3 pb-2">
