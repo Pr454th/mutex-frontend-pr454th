@@ -6,14 +6,21 @@ import { useEffect } from "react";
 
 const Footer = () => {
   const [visitorCount, setVisitorCount] = React.useState(0);
+  const [counter, setCounter] = React.useState(0);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
-      axios.get("/api/logs/page-views").then((res) => {
-        setVisitorCount(res.data.pageViews);
-      });
+      if (counter < 100) {
+        axios.get("/api/logs/page-views").then((res) => {
+          setVisitorCount(res.data.pageViews);
+          setCounter(counter + 1);
+        });
+      } else {
+        clearInterval(intervalId);
+      }
     }, 10000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [counter]);
 
   return (
     <footer className="mt-3 p-2 ps-5">
