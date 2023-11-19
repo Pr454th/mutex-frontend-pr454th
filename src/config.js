@@ -1,5 +1,5 @@
 const config = {
-  apiUrl: "https://mutex-api.azurewebsites.net",
+  apiUrl: "https://mutex-backend-afho.vercel.app",
 };
 
 export default config;
